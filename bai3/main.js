@@ -109,7 +109,7 @@ function showAll() {
                 <td>${list[i].fullName}</td>
                 <td>${list[i].identityCard}</td>
                 <td>${list[i].openingDate}</td>
-                <td>${list[i].depositAmount}</td>
+                <td>${list[i].depositAmount}đ</td>
                 <td><button onclick="update(${i})">Sửa</button></td>
                 <td><button onclick="remove(${i})">Xóa</button></td>
             </tr>
