@@ -18,18 +18,42 @@ function add() {
     let dateInput = document.getElementById("date").value;
     let codeInput = document.getElementById("code").value;
     
+    if (codeInput.toString().length > 3) {
+        alert("Mã sổ phải có tối đa 3 ký tự.");
+        return;
+    }
+    if (typeInput.length > 6) {
+        alert("Loại sổ phải có tối đa 10 ký tự.");
+        return;
+    }
+    if (nameInput.length > 8) {
+        alert("Họ và Tên phải có tối đa 8 ký tự.");
+        return;
+    }
+    if (idInput.toString().length !== 13) {
+        alert("Số căn cước phải có 9 ký tự.");
+        return;
+    }
+    
     let newSavingsBook = new SavingsBook(codeInput, typeInput, nameInput, idInput, dateInput, moneyInput);
     newstorage.addSavingBook(newSavingsBook);
     alert("Thêm thành công");
     showAll();
 }
 
-function remove(index) {
-    let isConfirm = confirm("Bạn chắc chứ?");
-    if (isConfirm) {
-        newstorage.removeSavingBook(index);
-        alert("Xóa thành công");
-        showAll();
+function remove() {
+    let codeInput = +prompt("Nhập mã sổ muốn xóa");
+    let index = newstorage.removeSavingBook(codeInput);
+    if (index === -1) {
+        alert("Mã sổ không tồn tại.");
+        remove();
+    } else {
+        let isConfirm = confirm("Bạn chắc chắn muốn xóa?");
+        if (isConfirm) {
+            newstorage.listSavingsBook.splice(index, 1);
+            alert("Xóa thành công");
+            showAll();
+        }
     }
 }
 
@@ -41,9 +65,26 @@ function update(index) {
     let dateInput = prompt("Nhập ngày mở sổ");
     let moneyInput = +prompt("Nhập số tiền gửi");
     
+    if (codeInput.toString().length > 3) {
+        alert("Mã sổ phải có tối đa 3 ký tự.");
+        return;
+    }
+    if (typeInput.length > 6) {
+        alert("Loại sổ phải có tối đa 10 ký tự.");
+        return;
+    }
+    if (nameInput.length > 8) {
+        alert("Họ và Tên phải có tối đa 30 ký tự.");
+        return;
+    }
+    if (idInput.toString().length !== 13) {
+        alert("Số căn cước phải có 9 ký tự.");
+        return;
+    }
+    
     let newSavingsBook = new SavingsBook(codeInput, typeInput, nameInput, idInput, dateInput, moneyInput);
-    newstorage.update(index, newSavingsBook);
-    alert("Sửa thành công");
+    newstorage.addSavingBook(newSavingsBook);
+    alert("Thêm thành công");
     showAll();
 }
 
