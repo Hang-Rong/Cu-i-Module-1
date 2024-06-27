@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuối Module 1</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Thêm sổ tiết kiệm</h2>
+    <input type="number" placeholder="Mã số sổ" id="code" maxlength="5">
+    <br>
+    <input type="text" placeholder="Loại sổ" id="type">
+    <br>
+    <input type="number" placeholder="Số căn cước" id="id" maxlength="15">
+    <br>
+    <input type="text" placeholder="Họ và tên" id="name">
+    <br>
+    <input type="datetime-local" placeholder="Ngày mở" id="date">
+    <br>
+    <input type="number" placeholder="Tiền gửi" id="money">
+    <br>
+    <div id="btn-save">
+        <button onclick="add()">Add</button>
+    </div>
+
+    <br>
+    <h2>Danh sách sổ tiết kiệm </h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Type</th>
+                <th>Name</th>
+                <th>ID number</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody id="book-list">
+        </tbody>
+    </table>
+
+    <script src="storage.js"></script>
+    <script src="sotietkiem.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

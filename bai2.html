@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Bài cuối Module 1 </title>
+</head>
+
+<body>
+    <script>
+        function checkFractionsEqual(tu_so1, mau_so1, tu_so2, mau_so2) {
+            let ssms = (mau_so1 * mau_so2) / gcd(mau_so1, mau_so2);
+            let sosanhTuSo1 = tu_so1 * (ssms / mau_so1);
+            let sosanhTuSo2 = tu_so2 * (ssms / mau_so2);
+
+            return sosanhTuSo1 === sosanhTuSo2;
+        }
+
+        function gcd(a, b) { // Hàm tính ước số chung lớn nhất
+            while (b) {
+                let temp = b;
+                b = a % b;
+                a = temp;
+            }
+            return a;
+        }
+
+        let tuSo1 = parseInt(prompt("Nhập tử số phân số 1: "));
+        let mauSo1 = parseInt(prompt("Nhập mẫu số phân số 1: "));
+        let tuSo2 = parseInt(prompt("Nhập tử số phân số 2: "));
+        let mauSo2 = parseInt(prompt("Nhập mẫu số phân số 2: "));
+
+        if (isNaN(tuSo1) || isNaN(mauSo1) || isNaN(tuSo2) || isNaN(mauSo2)) {
+            alert("Vui lòng nhập số hợp lệ.");
+        } else if (checkFractionsEqual(tuSo1, mauSo1, tuSo2, mauSo2)) {
+            alert("Hai phân số bằng nhau.");
+        } else {
+            alert("Hai phân số không bằng nhau.");
+        }
+        
+    </script>
+</body>
+
+</html>
